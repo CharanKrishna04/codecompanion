@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-230n3u(k2obl$)hm_0q1=^9fi*wbjy!_cg(t)6$aw=fm@o927z
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost:3000','http://127.0.0.1:8000/','localhost']
 
 
 # Application definition
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'crispy_forms',
     'crispy_bootstrap4',
+    'backend'
 ]
 
 MIDDLEWARE = [
@@ -134,6 +135,8 @@ CORS_ORIGIN_WHITELIST = [
      'http://localhost:3000'
 ]
 
+CSRF_TRUSTED_ORIGINS = ['http://localhost:3000'] 
+CSRF_ALLOWED_ORIGINS = ['http://localhost:3000'] 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MESSAGE_TAGS = {
@@ -150,3 +153,6 @@ ACCOUNT_AUTHENTICATION_METHOD ="username"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+CSRF_COOKIE_SECURE = False
+CSRF_COOKIE_HTTPONLY = False 
+SESSION_COOKIE_SECURE = False

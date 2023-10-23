@@ -18,7 +18,7 @@ class CodeCompanionUser(AbstractUser):
     lastname=models.CharField(max_length=50)
     password1=models.CharField(max_length=200)
     password2=models.CharField(max_length=200)
-    email = models.EmailField()
+    email=models.EmailField()
 
     class UserRoles(models.TextChoices):
         SOFTWAREDEVELOPER = "SOFTWAREDEVELOPER", 'Software Developer'
@@ -29,8 +29,7 @@ class CodeCompanionUser(AbstractUser):
     ROLE = models.CharField(max_length=50, choices=UserRoles.choices, default=BASE_ROLE)
     
     USERNAME_FIELD = 'username'
-    REQUIRED_FIELDS = [password1, password2, email, ROLE]
-
+    # REQUIRED_FIELDS = [password1, password2, email, ROLE]
 class CodeCompanionSD(CodeCompanionUser):
     LEVEL_CHOICES = ((1, 'Junior'), (2, 'Senior'))
     BASE_ROLE = CodeCompanionUser.BASE_ROLE.SOFTWAREDEVELOPER
