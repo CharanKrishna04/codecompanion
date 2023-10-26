@@ -1,5 +1,6 @@
 ﻿import React, { useState } from 'react';
 import axios from 'axios';
+import { API_URL } from '../constants';
 axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
 axios.defaults.xsrfCookieName = "xcsrftoken";
 
@@ -12,7 +13,7 @@ const CodeOptimizerFormUI = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:8000/codeOptimizer/', {
+      const response = await axios.post(API_URL, {
         input_code: inputCode,
       });
       const { code_completion } = response.data;
